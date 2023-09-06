@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # Adjust this to your main branch
+      - main
 
 jobs:
   build:
@@ -30,12 +30,20 @@ jobs:
         with:
           node-version: 14
 
+      - name: Change to 'www' directory
+        run: cd www
+
       - name: Install npm dependencies
         run: npm install
 
+      - name: Build project (modify this according to your project)
+        run: |
+          npm run build
+          npm run start
+
       - name: Deploy to GitHub Pages
         run: |
-          npm run build # Adjust this to your project's build script
+          cd ..
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git checkout --orphan gh-pages
