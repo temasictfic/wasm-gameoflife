@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Conway Game of Life</title>
+    <style>
+      body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #fps {
+       white-space: pre;
+       font-family: monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="play-pause"></button>     
+      <input type="button" id="reset" value="Reset">     
+      <input type="button" id="clear" value="Clear">
+      <input type="button" id="step" value="Step">
+    </div>
+    <label for="many-ticks">How many steps?</label>
+    <input type="range" id="many-ticks" min="1" max="5" value="1">
+    <canvas id="game-of-life-canvas" style="border-style: ridge;"></canvas>
+    <div id="fps" style="border-style: dotted;"></div>
+    <p id="specials" rows="4" cols="50">For Glider <b>"Ctrl + Click"</b>, For Pulsar <b>"Shift + Click"</b></p>
+    <script src="./bootstrap.js"></script>
+  </body>
+</html>
