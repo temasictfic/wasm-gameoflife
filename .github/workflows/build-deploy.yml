@@ -23,27 +23,19 @@ jobs:
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
       - name: Build wasm
-        run: wasm-pack build
+        run: wasm-pack build --release --no-typescript
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 16
 
-      - name: Build project (modify this according to your project)
+      - name: Install dependencies
         run: |
           cd www
           npm install
-          npm run build
-          npm run start
 
       - name: Deploy to GitHub Pages
         run: |
-          cd ..
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git checkout --orphan gh-pages
-          git --set-upstream-to=origin/main gh-pages
-          git add -A
-          git commit -m "GitHub Pages build by ${{ github.actor }}"
-          git push -f origin gh-pages
+          cd www
+          npm run deploy
