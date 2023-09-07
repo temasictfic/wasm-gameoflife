@@ -1,0 +1,3 @@
+https://www.learnhowtoprogram.com/intermediate-javascript/team-week/hosting-a-webpack-project-with-gh-pages
+https://github.com/turingschool-examples/webpack-starter-kit/blob/main/gh-pages-procedure.md
+https://github.com/donkirkby/webpack-gh-pages
