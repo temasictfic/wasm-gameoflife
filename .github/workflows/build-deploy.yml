@@ -37,5 +37,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           cd www
           npm run deploy
